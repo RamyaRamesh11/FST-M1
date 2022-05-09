@@ -2,22 +2,27 @@ package activities;
 
 import java.util.Arrays;
 public class Activity4 {
-    public static void main(String args[])
-    {
+    static void ascendingSort(int array[]) {
+        int size = array.length, i;
 
-        int[] b= {5,3,45,30,23,1};
-        System.out.println("The array before sorting is  "+ Arrays.toString(b));
+        for (i = 1; i < size; i++) {
+            int key = array[i];
+            int j = i - 1;
 
-        int first = b[0];
-        System.out.println(first);
-        for(int i=1;i<6;i++) {
-            if (first >=b[i]) {
-                 first = b[i];
-
+            while (j >= 0 && key < array[j]) {
+                array[j + 1] = array[j];
+                --j;
             }
-            System.out.println(first);
-
-
+            array[j + 1] = key;
         }
     }
+
+    public static void main(String args[]) {
+        int[] data = {9, 5, 1, 4, 3};
+        ascendingSort(data);
+        System.out.println("Sorted Array in Ascending Order: ");
+        System.out.println(Arrays.toString(data));
+
+    }
 }
+
